@@ -1,4 +1,11 @@
+@import "vars";
 /*Generales*/
+
+body {
+  background-color: #f5f5f5;
+  font-family: $font-family-primary;
+  box-sizing: content-box;
+}
 
 /*Header*/
 
