@@ -12,7 +12,17 @@ body {
 /*Header*/
 
 /*Side izquierda*/
-
+.side__link {
+    color: $link-color;
+}
+.home-section__link__hover:hover {
+    background-color: $background-hover-purple;
+    border-radius: 5px;
+    >.side__link {
+        text-decoration: underline !important;
+        color: $link-color-hover-purple;
+    }
+}
 /*Side izquierda*/
 
 /*Side  main*/
