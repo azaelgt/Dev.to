@@ -44,6 +44,26 @@
     font-family: $font-family-primary;
     font-size: 1.125rem;
 }
+.comment-text__post {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #242424;
+    line-height: 1.25;
+}
+.sort-comments__post {
+    background: transparent;
+    color: rgb(38, 38, 38);
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.375rem;
+
+}
+.btn-subscribe__comments {
+    border: none;
+    background-color: transparent;
+
+}
 
 .link-page {
     color: #1395b8;
@@ -52,17 +72,57 @@
 .hashtag__container {
     a {
         background: transparent;
-        color: rgb(64, 64, 64);
+        color: rgb(84, 84, 84);
         border-radius: 0.375rem;
+        padding: 7px;
+        display: flex;
+        align-items: center;
 
+        > .hashtag__purple{
+            color: #3b49df;
+        }
+        > .hashtag__brown {
+            color: #562765;
+        }
+        > .hashtag__red{
+            color: #890606;
+        }
+        > .hashtag__gray{
+            color: #222222;
+        }
     }
 
-    .hashtag--purple:hover {
+
+    .hashtag__purple--hover:hover {
         
+        border: 1px solid #3b49df;
         background-color: rgba(59, 73, 223, 0.10);
-
+        transition: ease-in-out 100ms;
+    }
+    .hashtag__brown--hover:hover {
+        
+        border: 1px solid #562765;
+        background-color: rgba(86, 39, 101, 0.10);
+        transition: ease-in-out 100ms;
+    }
+    .hashtag__red--hover:hover {
+        
+        border: 1px solid #890606;
+        background-color: rgba(137, 6, 6, 0.10);
+        transition: ease-in-out 100ms;
+    }
+    .hashtag__gray--hover:hover {
+        
+        border: 1px solid #222222;
+        background-color: rgba(34, 34, 34, 0.10);
+        transition: ease-in-out 100ms;
     }
 
+}
+
+.more-button__comment {
+    border: none;
+    background: transparent;
 }
 
 /*Side main*/
