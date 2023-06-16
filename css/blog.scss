@@ -22,13 +22,33 @@
     } 
     .card__profile-container {
         top: -32px;
+        .main__card-title:hover {
+            color: rgb(47, 58, 178);
+            cursor: pointer;
+        }
         .card__profile-image {
             width: 48px;
             height: 48px;
             border-radius: 10px;
         } 
+    
     }
-   
+
+    .border__light-subtle {
+        cursor: pointer;
+        .text__link-title:hover {
+            color: rgb(47, 58, 178);
+        }
+    }
+    
+    .link-underline-light:hover {
+        color: rgb(47, 58, 178);
+    }
+}
+
+.sticky__card {
+    position: sticky;
+    top: 20px;
 }
 
 

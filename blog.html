@@ -712,13 +712,14 @@
   <main></main>
   <!-- Emanuel -->
   <!-- Primos Eduardo  -->
-  <aside>
+  <aside class="h-100">
     <div class="card aside-blog__card-right aside-blog__card-right--border-black mb-3">
       <div class="card-body">
         <div class="d-flex align-items-end position-relative card__profile-container">
-          <img class="card__profile-image" src="https://res.cloudinary.com/practicaldev/image/fetch/s--h1q5i4Pl--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/1/9a7650bd-c94f-4330-b5af-ef29fbec1a39.jpg"
+          <img class="card__profile-image"
+            src="https://res.cloudinary.com/practicaldev/image/fetch/s--h1q5i4Pl--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/1/9a7650bd-c94f-4330-b5af-ef29fbec1a39.jpg"
             class="crayons-logo__image" alt="" loading="lazy">
-            <h5 class="card-title mb-0 ms-2">The DEV team</h5>
+          <h5 class="card-title main__card-title mb-0 ms-2">The DEV team</h5>
         </div>
 
         <button type="button" class="btn btn-primary w-100">Follow</button>
@@ -732,45 +733,48 @@
 
     <div class="card aside-blog__card-right mb-3">
       <div class="card-body">
-        <h5 class="card-title pb-3 border-bottom border-light-subtle">More from <a href="#" class="link-underline-light pe-auto">The DEV Team</a></h5>
-        <div class="pb-3 pt-3 border-bottom border-light-subtle">
-          <p>Catch DEV Lead Software Engineer Ridhwana Khan’s talk at Rubyday 2023</p>
+        <h5 class="card-title pb-3 border-bottom border__light-title">More from <a href="#"
+            class="link-underline-light pe-auto">The DEV Team</a></h5>
+        <div class="pb-3 pt-3 border-bottom border__light-subtle">
+          <p class="text__link-title">Catch DEV Lead Software Engineer Ridhwana Khan’s talk at Rubyday 2023</p>
           <span class="me-2">#ruby</span><span class="me-2">#meta</span><span class="me-2">#conference</span>
         </div>
-        <div class="pb-3 pt-3 border-bottom border-light-subtle">
-          <p>Happy Pride Month, DEV Community! 🏳️‍🌈</p>
-          <span class="me-2">#devpride</span><span class="me-2">#lgbtq</span><span class="me-2">#wecoded</span><span class="me-2">#meta</span>
+        <div class="pb-3 pt-3 border-bottom border__light-subtle">
+          <p class="text__link-title">Happy Pride Month, DEV Community! 🏳️‍🌈</p>
+          <span class="me-2">#devpride</span><span class="me-2">#lgbtq</span><span class="me-2">#wecoded</span><span
+            class="me-2">#meta</span>
         </div>
-      <div class="pt-3">
-         <p>Share Your Expertise & Stories with #devpride this Pride Month! 🌈</p>
-        <span class="me-2">#devpride</span><span class="me-2">#lgbtq</span><span class="me-2">#meta</span><span>#wecoded</span>
-      </div>
+        <div class="pt-3 border__light-subtle">
+          <p class="text__link-title">Share Your Expertise & Stories with #devpride this Pride Month! 🌈</p>
+          <span class="me-2 ">#devpride</span><span class="me-2">#lgbtq</span><span
+            class="me-2">#meta</span><span>#wecoded</span>
+        </div>
       </div>
     </div>
 
-    <div class="card aside-blog__card-right">
+    <div class="card aside-blog__card-right sticky__card">
       <div class="card-body">
-        <div class="d-flex">
-          <img width="24" height="24" class="rounded me-2"
-            src="https://res.cloudinary.com/practicaldev/image/fetch/s--Vryo4bG---/c_fill,f_auto,fl_progressive,h_64,q_auto,w_64/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/1/9a7650bd-c94f-4330-b5af-ef29fbec1a39.jpg"
-            alt="profile" loading="lazy">
-          <p>The DEV Team</p>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex">
+            <img width="24" height="24" class="rounded me-2"
+              src="https://res.cloudinary.com/practicaldev/image/fetch/s--Vryo4bG---/c_fill,f_auto,fl_progressive,h_64,q_auto,w_64/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/1/9a7650bd-c94f-4330-b5af-ef29fbec1a39.jpg"
+              alt="profile" loading="lazy">
+            <p>The DEV Team</p>
+          </div>
+          <button class="btn btn-light p-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img"
+              aria-labelledby="a239slsfkckm9sr31y6g8lelf0ey0lho" class="crayons-icon pointer-events-none">
+              <title id="a239slsfkckm9sr31y6g8lelf0ey0lho">Dropdown menu</title>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z">
+              </path>
+            </svg>
+          </button>
         </div>
-
-        <div>
-          <!-- Aqui van los tres puntos-->
-        </div>
-
         <h5 class="card-title">Did you know DEV is built on open source code?</h5>
-        <p>Yes, it's true. <a href="#">All the code is open source, and it is called <span class="fw-bold">Forem.</span></a> DEV is just <span class="fst-italic">an instance</span> of a Forem.</p>
+        <p>Yes, it's true. <a href="#">All the code is open source, and it is called <span
+              class="fw-bold">Forem.</span></a> DEV is just <span class="fst-italic">an instance</span> of a Forem.</p>
         <p>The future of social media is open source.</p>
-        
-
-
-
-
-
-
       </div>
     </div>
 
