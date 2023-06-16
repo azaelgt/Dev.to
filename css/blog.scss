@@ -1,4 +1,8 @@
+@import 'vars';
 /*Generales*/
+*{
+    font-family: $font-family-primary;
+}
 
 /*Header*/
 
@@ -9,6 +13,57 @@
 /*Side izquierda*/
 
 /*Side  main*/
+
+
+
+.page-profile__image {
+    width: 40px;
+    border-radius: 100px;
+}
+
+.user-profile__image {
+    width: 25px;
+    border-radius: 100px;
+}
+.user-text__post{
+    font-weight: 700;
+    color: rgb(64, 64, 64);
+    cursor: pointer;
+}
+.title__post {
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+.post-desc__post {
+    font-size: 0.75rem;
+    color: gray;
+}
+
+.description-post__container {
+    font-family: $font-family-primary;
+    font-size: 1.125rem;
+}
+
+.link-page {
+    color: #1395b8;
+}
+
+.hashtag__container {
+    a {
+        background: transparent;
+        color: rgb(64, 64, 64);
+        border-radius: 0.375rem;
+
+    }
+
+    .hashtag--purple:hover {
+        
+        background-color: rgba(59, 73, 223, 0.10);
+
+    }
+
+}
 
 /*Side main*/
 
