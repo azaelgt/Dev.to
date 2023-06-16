@@ -8,6 +8,23 @@ body {
 /*Header*/
 /*Header*/
 /*Side izquierda*/
+.side__link {
+  color: rgb(64, 64, 64);
+}
+
+.home-section__link__hover:hover {
+  background-color: rgba(59, 73, 223, 0.1);
+  border-radius: 5px;
+}
+.home-section__link__hover:hover > .side__link {
+  text-decoration: underline !important;
+  color: rgb(47, 58, 178);
+}
+
+.tag__dropdown {
+  height: 350px;
+}
+
 /*Side izquierda*/
 /*Side  main*/
 /*Side main*/
