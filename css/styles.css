@@ -27,6 +27,10 @@ body {
 
 /*Side izquierda*/
 /*Side  main*/
+.link__text {
+  color: #000;
+}
+
 /*Side main*/
 /*Side derecha*/
 .aside-blog__card-right {
