@@ -12,6 +12,16 @@ body {
   color: rgb(64, 64, 64);
 }
 
+.social__links .side__link:hover {
+  background-color: rgba(59, 73, 223, 0.1);
+  fill: rgb(47, 58, 178);
+}
+
+.social__links .side__link.side__link--underline:hover {
+  text-decoration: underline;
+  color: rgb(47, 58, 178);
+}
+
 .home-section__link__hover:hover {
   background-color: rgba(59, 73, 223, 0.1);
   border-radius: 5px;
@@ -29,6 +39,23 @@ body {
 /*Side  main*/
 .link__text {
   color: #000;
+}
+.link__text:hover {
+  color: rgb(47, 58, 178);
+}
+
+main .hashtags__hover {
+  font-size: 14px;
+}
+main .hashtags__hover:hover {
+  background-color: #e1e1e1;
+  border: 1px solid grey;
+}
+
+main .topmenu__texts--hover:hover {
+  background-color: #fff;
+  color: rgb(47, 58, 178);
+  text-decoration: underline;
 }
 
 /*Side main*/
