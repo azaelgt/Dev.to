@@ -1,5 +1,5 @@
-const createPostCard = (postObject) => {
-    let { Image, Comment, Tags, Title, key } = postObject;
+const createFirstPostCard = (postObject) => {
+    let { Image, Comment, Tags, Title, ImageAutor, key } = postObject;
 
     let postMain = document.createElement("main"); 
     postMain.classList.add("col-12", "col-sm-9", "col-md-9", "col-lg-6");
@@ -30,4 +30,38 @@ const createPostCard = (postObject) => {
     cardBodyPost.classList.add("card-body");
     cardBodyPost.setAttribute("style", "margin-bottom:10px");
 
+    let autorInformation = document.createElement("div");
+    autorInformation.classList.add("d-flex","flex-row");
+
+    let titlePost = document.createElement("h5");
+    titlePost.classList.add("card-title", "mt-2");
+
+    let tagsText = document.createElement("p");
+    tagsText.classList.add("card-text");
+
+    let reactionsandComments = document.createElement("div");
+    reactionsandComments.classList.add("d-flex", "flex-row", "justify-content-between");
+
+    let imageAutor = documetn.createElement("img");
+    imageAutor.classList.add("rounded-circle", "icon__image");
+    imageAutor.setAttribute("width","40px");
+    imageAutor.setAttribute("height","40px");
+    imageAutor.setAttribute("src", ImageAutor);
+    imageAutor.setAttribute("alt","icon");
+
+    let autorName = document.createElement("div");
+    autorName.classList.add("text", "ms-2");
+
+    let titlePostText = document.createElement("a");
+    titlePostText.classList.add("text-decoration-none", "link__text");
+    titlePostText.setAttribute("href","./blog.html");
+    titlePostText.innerText = Title;
+
+    
+
+
+
+
+
 }
+
