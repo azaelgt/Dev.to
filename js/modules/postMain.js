@@ -1,5 +1,5 @@
 const createFirstPostCard = (postObject) => {
-    let { Image, Comment, Tags, Title, ImageAutor, key } = postObject;
+    let { Image, Comment, Tag1, Tag2, Tag3, Title, ImageAutor, key } = postObject;
 
     let postMain = document.createElement("main"); 
     postMain.classList.add("col-12", "col-sm-9", "col-md-9", "col-lg-6");
@@ -36,8 +36,8 @@ const createFirstPostCard = (postObject) => {
     let titlePost = document.createElement("h5");
     titlePost.classList.add("card-title", "mt-2");
 
-    let tagsText = document.createElement("p");
-    tagsText.classList.add("card-text");
+    let tags = document.createElement("p");
+    tags.classList.add("card-text");
 
     let reactionsandComments = document.createElement("div");
     reactionsandComments.classList.add("d-flex", "flex-row", "justify-content-between");
@@ -57,11 +57,19 @@ const createFirstPostCard = (postObject) => {
     titlePostText.setAttribute("href","./blog.html");
     titlePostText.innerText = Title;
 
+    let tagsText1 = document.createElement("span")
+    tagsText1.classList.add("hashtags__hover", "p-2", "rounded");
+    tagsText1.innerText = Tag1;
+
+    let tagsText2 = document.createElement("span")
+    tagsText2.classList.add("hashtags__hover", "p-2", "rounded");
+    tagsText2.innerText = Tag2;
+
+    let tagsText3 = document.createElement("span")
+    tagsText3.classList.add("hashtags__hover", "p-2", "rounded");
+    tagsText3.innerText = Tag3;
+
     
-
-
-
-
 
 }
 
