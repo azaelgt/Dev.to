@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const postBody = quill.root.innerHTML;
     const postTimeToRead = Math.ceil(quill.getText().length / 1500);
 
-    const postAuthor = "Azael Abdias"; // Replace with the actual author's name or ID
-    const postComments = []; // Initialize comments as an empty array
+    const postAuthor = "Azael Abdias";
+    const postComments = [];
     const postRating = Math.random();
-    const postRelevant = true; // Set relevant to true (you can change this based on your requirement)
+    const postRelevant = true;
 
     const userComment = quill.root.innerHTML;
     postComments.push(userComment);
@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return shuffledTags.slice(0, numTags);
     }
 
-    // List of available tags
     const tagsList = [
       "#beginners",
       "#devops",
@@ -56,8 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "#computerscience",
       "#javascript",
     ];
-    const randomTags = getRandomTags(tagsList, 1, 4);
 
+    const randomTags = getRandomTags(tagsList, 1, 4);
 
     const postData = {
       author: postAuthor,
@@ -68,4 +67,40 @@ document.addEventListener("DOMContentLoaded", () => {
       createdDate: postCreatedDate,
       rating: postRating,
       relevant: postRelevant,
-      tags: randomTags, // Add the random tags to the postData object
+      tags: randomTags,
+    };
+
+    try {
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to create the post.");
+      }
+
+      const jsonData = await response.json();
+      console.log(jsonData);
+
+      if (jsonData && jsonData.name) {
+        alert("¡Publicación creada exitosamente!");
+        window.location.href = "/index.html";
+      } else {
+        alert("Error al crear la publicación.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Ocurrió un error al crear la publicación.");
+    }
+  });
+});
+
+function redirectToCreatePost() {
+  const queryParams = "param1=value1&param2=value2"; // Agrega aquí los query parameters deseados
+  const url = `createPost.html?${queryParams}`;
+  window.open(url, "_blank");
+}
