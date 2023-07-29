@@ -11,3 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     console.log("button clicked");
+
+    const urlPostImg = document.querySelector("#url_post_img").value;
+    const postTitle = document.querySelector("#input_post_title").value;
+    const postBody = quill.root.innerHTML;
+    const postTimeToRead = Math.ceil(quill.getText().length / 1500);
+
+    const postAuthor = "Azael Abdias"; // Replace with the actual author's name or ID
+    const postComments = []; // Initialize comments as an empty array
+    const postRating = Math.random();
+    const postRelevant = true; // Set relevant to true (you can change this based on your requirement)
+
+    const userComment = quill.root.innerHTML;
+    postComments.push(userComment);
+    
