@@ -30,3 +30,31 @@ document.addEventListener("DOMContentLoaded", () => {
       currentDate.getMonth() + 1
     } - ${currentDate.getFullYear()}`;
     const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+
+    const postCreatedDate = `${formattedDate} ${formattedTime}`;
+
+    function getRandomTags(tagsList, minTags, maxTags) {
+      const numTags =
+        Math.floor(Math.random() * (maxTags - minTags + 1)) + minTags;
+      const shuffledTags = tagsList.sort(() => 0.5 - Math.random());
+      return shuffledTags.slice(0, numTags);
+    }
+
+    // List of available tags
+    const tagsList = [
+      "#beginners",
+      "#devops",
+      "#typescript",
+      "#css",
+      "#database",
+      "#security",
+      "#blockchain",
+      "#machinelearning",
+      "#git",
+      "#gamedev",
+      "#vscode",
+      "#computerscience",
+      "#javascript",
+    ];
+    const randomTags = getRandomTags(tagsList, 1, 4);
+    
