@@ -1,5 +1,5 @@
 const createFirstPostCard = (postObject) => {
-    let { Image, Comment, Tag1, Tag2, Tag3, Title, ImageAutor, key } = postObject;
+    let { Image, Comment, Tag1, Tag2, Tag3, Title, ImageAutor, Autor, Date, key } = postObject;
 
     let postMain = document.createElement("main"); 
     postMain.classList.add("col-12", "col-sm-9", "col-md-9", "col-lg-6");
@@ -69,7 +69,43 @@ const createFirstPostCard = (postObject) => {
     tagsText3.classList.add("hashtags__hover", "p-2", "rounded");
     tagsText3.innerText = Tag3;
 
-    
+    let reactions = document.createElement("div");
+    reactions.classList.add("d-flex", "flex-row");
+
+    let timeRead = document.createElement("div")
+    timeRead.classList.add("d-flex", "flex-row");
+
+    let firstNameText = document.createElement("h6");
+    firstNameText.classList.add("m-0");
+    firstNameText.innerText = Autor;
+
+    let dateText = document.createElement("span");
+    dateText.innerText = Date;
+
+    let heartEmoji = document.createElement("p");
+    heartEmoji.innerText = "❤️";
+    let unicornEmoji = documen.createElement("p");
+    unicornEmoji.innerText = "🦄";
+    let sorpriseEmoji = document.createElement("p");
+    sorpriseEmoji.innerText = "🤯";
+    let handsEmoji = document.createElement("p");
+    handsEmoji.innerText = "🙌";
+    let fireEmoji = document.createElement("p");
+    fireEmoji.innerText = "🔥";
+
+    let numberReactionsText = document.createElement("p");
+    numberReactionsText.innerText = "212 reactions";
+
+    let commentBoxImage = document.createElement("img");
+    commentBoxImage.setAttribute("src","./assets/images/comment-icon.png");
+    commentBoxImage.setAttribute("style","width: 15px; height: 15px; margin: 10px; margin-top: 5px;");
+
+    let numberOfComment = documen.createElement("p");
+    numberOfComment.innerText = "52 comments";
+
+    let timeReadText = document.createElement("p");
+    timeReadText.innerText = "10 min read";
 
 }
+
 
