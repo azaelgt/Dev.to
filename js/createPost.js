@@ -100,7 +100,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function redirectToCreatePost() {
-  const queryParams = "param1=value1&param2=value2"; // Agrega aquí los query parameters deseados
+  const queryParams = "param1=value1&param2=value2";
   const url = `createPost.html?${queryParams}`;
   window.open(url, "_blank");
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  function redirectToIndexWithQuery() {
+    const queryParams = "param1=value1&param2=value2";
+    const url = `index.html?${queryParams}`;
+    window.location.href = url;
+  }
+  const logoImage = document.querySelector("#logoImage");
+  logoImage.addEventListener("click", redirectToIndexWithQuery);
+});
