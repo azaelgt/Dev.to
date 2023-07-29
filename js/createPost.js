@@ -57,4 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
       "#javascript",
     ];
     const randomTags = getRandomTags(tagsList, 1, 4);
-    
+
+
+    const postData = {
+      author: postAuthor,
+      image: urlPostImg,
+      title: postTitle,
+      comments: postComments.length,
+      comentsData: postComments,
+      createdDate: postCreatedDate,
+      rating: postRating,
+      relevant: postRelevant,
+      tags: randomTags, // Add the random tags to the postData object
