@@ -1,7 +1,7 @@
 // vamos a crear los elementos dinamicos del html del post con datos del json
 
 const getJson = async() => {
-  const response = await fetch("https://devtoequipo3-default-rtdb.firebaseio.com/POST.json");
+  const response = await fetch("https://devtoequipo3-default-rtdb.firebaseio.com/POST/.json");
   const data = await response.json();
   return data;
 };
@@ -22,9 +22,20 @@ const getJson = async() => {
 //2. Crear uno a uno los elementos del dom agregando las clases de una vez, los elementos se desglozaron en papel segun el html 
 //3. Empecemos con una prueba, no incluiremos el dom, sera hardkodeado
 //4. Hacer apendizaciones
-let urlAuthor = 'https://xsgames.co/randomusers/avatar.php?g=male';
 const createPostCard = (postObject) => {
-  let {author, comentsData, createdDate, image, tags, title} = postObject;
+  let {author, comentsData, createdDate, image, tags, title, key} = postObject;
+  document.getElementById('post-image').src = image;
+  document.getElementById('author-name').innerText = author;
+  document.getElementById('date-post').innerText = createdDate;
+  document.getElementById('title-post').innerText = title ;
+  document.getElementById('hashtag-post').innerText = tags;
+  document.getElementById('bodytext-post').innerText = comentsData;
+  // document.getElementById('').innerText = ;
+  // document.getElementById('').innerText = ;
+  // document.getElementById('').innerText = ;
+
+
+  /*
   let cardContainer = document.createElement('div');
 
   let imagePostCard = document.createElement('div'); 
@@ -71,6 +82,9 @@ const createPostCard = (postObject) => {
   commentContainer.innerText = comentsData;
   commentContainer.classList.add('m-3', 'description-post__container');
 
+// //call desde index//
+// let tagContainerForListener = document.getElementById('tag-container');
+
 imagePostCard.append(imagePost);
 imageAuthorPostCard.append(imageAuthorPost, hiperlinkAuthor, imageAuthor);
 authorDataCard.append(authorName, datePosted);
@@ -79,6 +93,7 @@ tagsContainer.append(tagText);
 cardContainer.append(imagePost, imageAuthorPostCard, authorDataCard, titlePost, tagsContainer, commentContainer);
 
 return cardContainer;
+*/
 };
 
 const printPost = async () => {

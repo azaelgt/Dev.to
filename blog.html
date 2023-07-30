@@ -692,26 +692,26 @@
                     <div class="d-flex m-3">
 
                       <header id="card-wrapper" >
-                          <!-- <div>
-                              <img src="./assets/images/post.webp" alt="" class="img-fluid h-100 w-100" />
-                          </div> -->
-                              <!-- <div class="position-relative m-1">
+                          <div>
+                              <img id="post-image" alt="" class="img-fluid h-100 w-100" />
+                          </div> 
+                               <div class="position-relative m-1">
                                   <a href="" class="">
                                       <img src="./assets/images/a.webp" alt="" class="img-fluid page-profile__image" />
                                   </a>
-                                  <a href="" class="position-absolute bottom-0 end-0">
-                                      <img src="./assets/images/userBlog.jpeg" alt="" class="img-fluid rounded-circle user-profile__image" />
+                                  <a href="" class="position-absolute bottom-0 ">
+                                      <img src="https://xsgames.co/randomusers/avatar.php?g=male" alt="" class="img-fluid rounded-circle user-profile__image" />
                                   </a>
-                              </div> -->
-                              <!-- <div class="">
-                                  <a href="" class="text-decoration-none user-text__post">Necati Özmen</a>
+                              </div> 
+                              <div class="">
+                                  <a id="author-name" href="" class="text-decoration-none user-text__post">Necati Özmen</a>
                                   <span class="fw-lighter">for</span>
                                   <a href="" class="text-decoration-none text-black fw-light">refine</a>
                                   <p class="fw-light post-desc__post">
-                                      Posted on Jun 15 • Originally published at
+                                      Posted on <span id="date-post"></span> • Originally published at
                                       <a href="" class="text-decoration-none link-page">refine.dev</a>
                                   </p>
-                              </div> -->
+                              </div> 
                           </div>
           <!-- estas son las reacctiones y son estaticas, se kodean desde aqui -->
                           <div class="d-flex justify-content-between mx-1">
@@ -742,11 +742,11 @@
                               </span>
                           </div>
           <!-- aqui terminan las reacciones del post -->
-                          <!-- <h1 class="m-2 title__post">
+                          <h1 id="title-post" class="m-2 title__post">
                               refine + DEV Open Source Hackathon 2 - Pre-Announcement
-                          </h1> -->
-                          <!-- <div class="m-2 p-1 d-flex flex-wrap hashtag__container">
-                              <a href="" class="text-decoration-none hashtag__purple--hover">
+                          </h1> 
+                           <div class="m-2 p-1 d-flex flex-wrap hashtag__container">
+                              <a id="hashtag-post" href="" class="text-decoration-none hashtag__purple--hover">
                                   <span class="hashtag__purple">#</span>hackathon
                               </a>
                               <a href="" class="text-decoration-none hashtag__brown--hover">
@@ -758,10 +758,10 @@
                               <a href="" class="text-decoration-none hashtag__gray--hover">
                                   <span class="hashtag__gray">#</span>react
                               </a>
-                          </div> -->
+                          </div>
                       </header>
-                      <!-- <div class="m-3 description-post__container">
-                          <p>
+                       <div id="bodytext-post" class="m-3 description-post__container">
+                         <!-- <p>
                               Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi sed
                               beatae, sit ex eveniet optio hic nisi voluptatum fugit deleniti.
                           </p>
@@ -817,8 +817,8 @@
                               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ipsum
                               blanditiis incidunt laudantium optio temporibus ratione, repellendus
                               aperiam unde laboriosam!
-                          </p>
-                      </div> -->
+                          </p> -->
+                      </div>
           <!-- estos son los comments, estos son estaticos -->
                       <div class="container">
                           <header class="d-flex justify-content-between">
@@ -1146,7 +1146,7 @@
           </div>
         </footer>
          <!-- David -->
-         <script src="js/blog.js"></script>
+         <script src="js/blog.js" type="module"></script>
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
          <script>
           var tooltipTriggerList = [].slice.call(
