@@ -1,5 +1,11 @@
+const getPosts = async () => {
+    let response = await fetch("https://devtoequipo3-default-rtdb.firebaseio.com/POST/.json");
+    let data = await response.json();
+    return data;
+}
 const createFirstPostCard = (postObject) => {
-    let { Image, Comment, Tag1, Tag2, Tag3, Title, ImageAutor, Autor, Date, key } = postObject;
+    let { author, comentsData, comments, createDate, image, rating, relevant, tags, title} = postObject;
+    let {Tag1, Tag2, Tag3} = tags;
 
     let postMain = document.createElement("main"); 
     postMain.classList.add("col-12", "col-sm-9", "col-md-9", "col-lg-6");
@@ -23,7 +29,7 @@ const createFirstPostCard = (postObject) => {
 
     let bigImagePost = document.createElement("img")
     bigImagePost.classList.add("card-img-top");
-    bigImagePost.setAttribute("src", Image);
+    bigImagePost.setAttribute("src", image);
     bigImagePost.setAttribute("alt", "...")
 
     let cardBodyPost = document.createElement("div");
@@ -36,17 +42,17 @@ const createFirstPostCard = (postObject) => {
     let titlePost = document.createElement("h5");
     titlePost.classList.add("card-title", "mt-2");
 
-    let tags = document.createElement("p");
-    tags.classList.add("card-text");
+    let tagsT = document.createElement("p");
+    tagsT.classList.add("card-text");
 
     let reactionsandComments = document.createElement("div");
     reactionsandComments.classList.add("d-flex", "flex-row", "justify-content-between");
 
-    let imageAutor = documetn.createElement("img");
+    let imageAutor = document.createElement("img");
     imageAutor.classList.add("rounded-circle", "icon__image");
     imageAutor.setAttribute("width","40px");
     imageAutor.setAttribute("height","40px");
-    imageAutor.setAttribute("src", ImageAutor);
+    imageAutor.setAttribute("src", "https://res.cloudinary.com/practicaldev/image/fetch/s--k7uOWOtg--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/152613/f6aadb36-121c-409f-b746-e40e0408ea51.png");
     imageAutor.setAttribute("alt","icon");
 
     let autorName = document.createElement("div");
@@ -55,7 +61,7 @@ const createFirstPostCard = (postObject) => {
     let titlePostText = document.createElement("a");
     titlePostText.classList.add("text-decoration-none", "link__text");
     titlePostText.setAttribute("href","./blog.html");
-    titlePostText.innerText = Title;
+    titlePostText.innerText = title;
 
     let tagsText1 = document.createElement("span")
     tagsText1.classList.add("hashtags__hover", "p-2", "rounded");
@@ -75,16 +81,16 @@ const createFirstPostCard = (postObject) => {
     let timeRead = document.createElement("div")
     timeRead.classList.add("d-flex", "flex-row");
 
-    let firstNameText = document.createElement("h6");
-    firstNameText.classList.add("m-0");
-    firstNameText.innerText = Autor;
+    let autorNameText = document.createElement("h6");
+    autorNameText.classList.add("m-0");
+    autorNameText.innerText = author;
 
     let dateText = document.createElement("span");
-    dateText.innerText = Date;
+    dateText.innerText = createDate;
 
     let heartEmoji = document.createElement("p");
     heartEmoji.innerText = "❤️";
-    let unicornEmoji = documen.createElement("p");
+    let unicornEmoji = document.createElement("p");
     unicornEmoji.innerText = "🦄";
     let sorpriseEmoji = document.createElement("p");
     sorpriseEmoji.innerText = "🤯";
@@ -100,12 +106,60 @@ const createFirstPostCard = (postObject) => {
     commentBoxImage.setAttribute("src","./assets/images/comment-icon.png");
     commentBoxImage.setAttribute("style","width: 15px; height: 15px; margin: 10px; margin-top: 5px;");
 
-    let numberOfComment = documen.createElement("p");
-    numberOfComment.innerText = "52 comments";
+    let numberOfComment = document.createElement("p");
+    numberOfComment.innerText = comments + "comments";
 
     let timeReadText = document.createElement("p");
     timeReadText.innerText = "10 min read";
 
+    timeRead.append(timeReadText);
+
+    reactions.append(heartEmoji,
+        unicornEmoji,sorpriseEmoji,handsEmoji,
+        fireEmoji,numberReactionsText,commentBoxImage,
+        numberOfComment,
+        );
+    reactionsandComments.append(reactions,timeRead);
+
+    tagsT.append(tagsText1,tagsText2,tagsText3);
+
+    titlePost.append(titlePostText);
+
+    autorName.append(autorNameText, dateText);
+
+    autorInformation.append(imageAutor, autorName);
+
+    cardBodyPost.append(
+        autorInformation,titlePost,tags,reactionsandComments
+        )
+
+    firstCardPost.append(bigImagePost,cardBodyPost);
+
+    ////////////////////////First Post
+
+    filterBox.append(relevantText,latestText,topText);
+
+    postMain.append(filterBox,firstCardPost);
+
+    return postMain;
 }
+
+const printAllPost = async() => {
+    let posts = await getPosts();
+    console.log(posts);
+
+    let postsWrapper = document.getElementById("posts-wrapper");
+    let keys = Object.keys(posts);
+    console.log(keys);
+    keys.forEach(key => {
+        console.log("key: ", key)
+        console.log("value: ", posts[key])
+        let postCard = createFirstPostCard(posts[key]);
+        postsWrapper.append(postCard);
+    })
+
+}
+
+printAllPost();
 
 
