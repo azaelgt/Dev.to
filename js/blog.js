@@ -26,15 +26,16 @@ const createPostCard = (postObject) => {
   let {author, comentsData, createdDate, image, tags, title, key} = postObject;
   document.getElementById('post-image').src = image;
   document.getElementById('author-name').innerText = author;
-  document.getElementById('date-post').innerText = createdDate;
+  document.getElementById('date-post').innerText = `Posted on ${createdDate} `;
   document.getElementById('title-post').innerText = title ;
-  document.getElementById('hashtag-post').innerText = tags;
+  let allTags = []
+  for(var i=0; i<tags.length; i++) {
+    allTags += `${tags[i]} `;
+  }
+  console.log(allTags)
+
+  document.getElementById('hashtag-post').innerText = allTags;
   document.getElementById('bodytext-post').innerText = comentsData;
-  // document.getElementById('').innerText = ;
-  // document.getElementById('').innerText = ;
-  // document.getElementById('').innerText = ;
-
-
   /*
   let cardContainer = document.createElement('div');
 
