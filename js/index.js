@@ -1,19 +1,35 @@
 import {getJson} from "./api.js";
 
-const printPostDetail = (postObject) =>
+const printPostDetail = (postObject, post, key) =>
 {
-  let {author, comentsData, createdDate, image, tags, title, key} = postObject;
-  document.getElementById('post-image').src = image;
-  document.getElementById('author-image').src = urlAuthor;
-  document.getElementById('author-name').innerText = author;
-  document.getElementById('date-post').innerText = createdDate;
-  document.getElementById('title-post').innerText = title ;
-  document.getElementById('hashtag-post').innerText = tags;
-  document.getElementById('bodytext-post').innerText = comentsData;
-  // document.getElementById('').innerText = ;
-  // document.getElementById('').innerText = ;
-  // document.getElementById('').innerText = ;
-
-
+  let {title, comments,tags} = postObject;
+  for(let i=0; i<tags.length; i++) {
+  if (tags[i].includes('#beginners')) {
+     document.getElementById('title-post').innerText = title; 
+     document.getElementById('comments-post').innerText = comments;
+     console.log('key desde el for`',key, 'post desde el for', post)
+    }
+  }
 }
-printPostDetail();
+
+const printPost = async () => {
+    let post = await getJson();
+    console.log('post', post);
+    let keys = Object.keys(post);
+    console.log('keys', keys);
+  
+    let cardWrapper = document.getElementById('tag-container');
+  
+  
+    keys.forEach((key) => {
+        console.log('key', key);
+        console.log('post',post[key]);
+
+        let card = printPostDetail(post[key], post, key); //el post[key] es el argumento q queremos iterar
+        console.log('card',card);
+        cardWrapper.append(card);
+    })      
+
+
+  };
+  printPost();

@@ -1,10 +1,11 @@
 // vamos a crear los elementos dinamicos del html del post con datos del json
+import {getJson} from "./api.js";
 
-const getJson = async() => {
-  const response = await fetch("https://devtoequipo3-default-rtdb.firebaseio.com/POST/.json");
-  const data = await response.json();
-  return data;
-};
+// const getJson = async() => {
+//   const response = await fetch("https://devtoequipo3-default-rtdb.firebaseio.com/POST/.json");
+//   const data = await response.json();
+//   return data;
+// };
 // dataJson = getJson();
 
 // let imagePost.src = url;
@@ -24,16 +25,14 @@ const getJson = async() => {
 //4. Hacer apendizaciones
 const createPostCard = (postObject) => {
   let {author, comentsData, createdDate, image, tags, title, key} = postObject;
+  let allTags = []
+  for(let i=0; i<tags.length; i++) {
+    allTags += `${tags[i]} `;
+  }
   document.getElementById('post-image').src = image;
   document.getElementById('author-name').innerText = author;
   document.getElementById('date-post').innerText = `Posted on ${createdDate} `;
   document.getElementById('title-post').innerText = title ;
-  let allTags = []
-  for(var i=0; i<tags.length; i++) {
-    allTags += `${tags[i]} `;
-  }
-  console.log(allTags)
-
   document.getElementById('hashtag-post').innerText = allTags;
   document.getElementById('bodytext-post').innerText = comentsData;
   /*
