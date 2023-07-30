@@ -22,7 +22,7 @@ const getJson = async() => {
 //2. Crear uno a uno los elementos del dom agregando las clases de una vez, los elementos se desglozaron en papel segun el html 
 //3. Empecemos con una prueba, no incluiremos el dom, sera hardkodeado
 //4. Hacer apendizaciones
-
+let urlAuthor = 'https://xsgames.co/randomusers/avatar.php?g=male';
 const createPostCard = (postObject) => {
   let {author, comentsData, createdDate, image, tags, title} = postObject;
   let cardContainer = document.createElement('div');
@@ -43,7 +43,7 @@ const createPostCard = (postObject) => {
   hiperlinkAuthor.classList.add('position-absolute', 'bottom-0', 'end-0');
   
   let imageAuthor = document.createElement('img');
-  imageAuthor.src = "https://randomuser.me/api/portraits/women/31.jpg";
+  imageAuthor.src = urlAuthor;
   imageAuthor.classList.add('img-fluid', 'rounded-circle', 'page-profile__image');
 
   let authorDataCard = document.createElement('div');
@@ -60,28 +60,42 @@ const createPostCard = (postObject) => {
   titlePost.classList.add('m-2', 'title__post');
 
   let tagsContainer = document.createElement('div');
+  tagsContainer.classList.add('m-2', 'p-1', 'd-flex', 'flex-wrap', 'hashtag__container')
+  
+  let tagText = document.createElement('a');
+  tagText.classList.add('text-decoration-none', 'hashtag__purple--hover')
+  tagText.innerText = tags[0];
+  // tagText.innerText = tags[1];
 
+  let commentContainer = document.createElement('div');
+  commentContainer.innerText = comentsData;
+  commentContainer.classList.add('m-3', 'description-post__container');
 
 imagePostCard.append(imagePost);
 imageAuthorPostCard.append(imageAuthorPost, hiperlinkAuthor, imageAuthor);
 authorDataCard.append(authorName, datePosted);
+tagsContainer.append(tagText);
 
-cardContainer.append(imagePost, imageAuthorPostCard, authorDataCard, titlePost);
+cardContainer.append(imagePost, imageAuthorPostCard, authorDataCard, titlePost, tagsContainer, commentContainer);
 
 return cardContainer;
 };
 
 const printPost = async () => {
   let post = await getJson();
-  console.log(post);
+  console.log('post', post);
   let keys = Object.keys(post);
-  console.log(keys);
+  console.log('keys', keys);
 
   let cardWrapper = document.getElementById('card-wrapper');
 
+
+
+  // DESDE ESTE FOREACH SE LE MANDA EL VALOR FILTRADO DEL TAG PARA SOLO IMPRIMIR ESE
   keys.forEach((key) => {
     console.log('key', key);
     console.log(post[key]);
+    
     let card = createPostCard(post[key]);
     console.log('card',card);
     cardWrapper.append(card);
