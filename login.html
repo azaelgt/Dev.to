@@ -141,31 +141,68 @@
 
     <main class="main-container">
         <div class="logincontainer">
-            <h1 id="title">This is the title</h1>
-            <h5 id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius porro dolores voluptas, praesentium similique quo necessitatibus deserunt autem. Eaque deserunt itaque sint praesentium iste fuga ipsam labore ab similique sapiente?</h5>
+            <h1 id="title">Welcome to DEV Community</h1>
+            <h5 id="description">DEV Community is a community of 1,110,244 amazing developers
+
+            </h5>
 
             <div id="social-media">
-                <button type="button" class="btn btn-primary">Apple</button>
-                <button type="button" class="btn btn-secondary">Forem</button>
-                <button type="button" class="btn btn-success">GitHub</button>
-                <button type="button" class="btn btn-danger">Twitter</button>
+                <button type="button" class="btn btn-primary smbutton" >Continue with Apple</button>
+                <button type="button" class="btn btn-secondary smbutton" >Forem</button>
+                <button type="button" class="btn btn-success smbutton" >GitHub</button>
+                <button type="button" class="btn btn-danger smbutton">Twitter</button>
             </div>
 
-            <p class="forgot-password">forgot forgot-password</p>
+            <p class="forgot-password">Forgot Password</p>
+            
 
-            <p>Email</p>
+            <div class="logininfo">
+            <p class="m-1">Email</p>
             <input type="text">
 
-            <p>Password</p>
+            <p class="m-1">Password</p>
             <input type="text">
+             
+            <div><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">Remember Me</label></div>
+            
 
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                Remember Me
-             </label>
+            </div>
+            
 
-            <button type="button" class="btn btn-primary" id="continue">Continue</button>
-            <button type="button" class="btn btn-link">Forgot Password</button>
+            <div class="loginButtons">
+                <button type="button" class="btn btn-primary btnlogin" id="continue">Continue</button>
+                <button type="button" class="btn btn-link btnlogin" id="forgot">Forgot Password</button>
+            </div>
+            
+<footer class="footer__container p-5 mt-4">
+                <div class="container text-center">
+                  <p><a href="#">DEV Community</a> -- A constructive and inclusive social network for software developers. With you every step of your journey.</p>
+                  <ul class="d-flex justify-content-center flex-wrap">
+                    <li class="list-unstyled me-4"><a class="text-decoration-none" href="">Home</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">Listings</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">Podcasts</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">Videos</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">Tags</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">FAQ</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">Forem Shop</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">Sponsors</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">About</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">Contact</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">Guides</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">Software comparisons</a></li>
+                  </ul>
+                  <ul class="d-flex justify-content-center">
+                    <li class="list-unstyled me-4"><a class="text-decoration-none" href="">Code of Conduct</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">Privacy Policy</a></li>
+                    <li class="me-4"><a class="text-decoration-none" href="">terms of use</a></li>
+                  </ul>
+                  <p class="m-0">Built on <a class="text-decoration-none" href="#">Forem</a> — the <a class="text-decoration-none" href="#">open source</a> software that powers <a href="#" class="text-decoration-none">DEV</a> and other inclusive communities.</p>
+                  <p class="m-0">Made with love and <a href="#" class="text-decoration-none">Ruby on Rails</a>. DEV Community © 2016 - 2023.</p>
+                </div>
+
+</footer>
+           
         
 
         </div>
@@ -176,5 +213,6 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/login.js"></script>
 </body>
 </html>
