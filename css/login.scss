@@ -1,10 +1,10 @@
 .logincontainer {
-    width: 600px;
-    border: solid 5px red;
+    width: 650px;
+   
     height: 800px;
     background-color: white;
-    margin-top: 20px;
-    padding-bottom: 100px;
+    margin-top: 13px;
+    margin-bottom: 13px;
     border-radius: 3px;
 }
 
@@ -12,7 +12,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aquamarine;
+    background-color: lightgray;
+    margin-bottom: 30px;
 }
 
 #title {
@@ -39,12 +40,16 @@
     width: 83%;
     margin: 5px;
     height: 45px;
+    display: flex;
+
 }
 
 .forgot-password {
     text-align: center;
     margin-top: 13px;
     font-size: 12px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 .logininfo {
@@ -68,4 +73,13 @@
 }
 
 
+.icons {
+    height: 20px;
+    width: 15px;
+    margin: 6px;
+    padding-bottom: 3px;
+}
 
+.logn-info {
+    margin-top: 0px;
+}
