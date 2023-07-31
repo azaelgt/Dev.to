@@ -5,8 +5,9 @@ function redirectToIndexWithQuery() {
 }
 
 // Agrega un evento 'click' al enlace con la imagen
-const logoLink = document.querySelector("#logoLink");
-logoLink.addEventListener("click", redirectToIndexWithQuery);
+// const logoLink = document.querySelector("#logoLink");
+// logoLink.addEventListener("click", redirectToIndexWithQuery);
+
 import {getJson} from "./api.js";
 
 const printFirstTagMiniPost = (postObject, firstTag, secondTag, key) =>
@@ -21,7 +22,7 @@ const printFirstTagMiniPost = (postObject, firstTag, secondTag, key) =>
      tagContainer.classList.add('list-group-item');
      tagContainer.addEventListener('click', () => {
       console.log('key desde el listener',key);
-      window.open(`../Dev.to/blog.html?postId=${key}`, '_blank');
+      window.open(`../blog.html?postId=${key}`, '_blank');
       })
 
      let titleContainer = document.createElement('div');
@@ -43,7 +44,7 @@ const printFirstTagMiniPost = (postObject, firstTag, secondTag, key) =>
         tagContainer.classList.add('list-group-item');
         tagContainer.addEventListener('click', () => {
           console.log('key desde el listener',key);
-          window.open(`../Dev.to/blog.html?postId=${key}`, '_blank');
+          window.open(`../blog.html?postId=${key}`, '_blank');
           })
           
         let titleContainer = document.createElement('div');
