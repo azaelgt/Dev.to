@@ -153,7 +153,7 @@ const createSecondaryPosts = (postObject) =>{
     imageAutor.classList.add("rounded-circle", "icon__image");
     imageAutor.setAttribute("width","40px");
     imageAutor.setAttribute("height","40px");
-    imageAutor.setAttribute("src", "https://res.cloudinary.com/practicaldev/image/fetch/s--k7uOWOtg--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/152613/f6aadb36-121c-409f-b746-e40e0408ea51.png");
+    imageAutor.setAttribute("src", imageAuthorAleatory ());
     imageAutor.setAttribute("alt","icon");
 
     let autorName = document.createElement("div");
@@ -260,6 +260,11 @@ const printAllPost = async() => {
 
     })
 
+}
+
+const imageAuthorAleatory = () => {
+    urlBase = "https://xsgames.co/randomusers/avatar.php?g=male";
+    return urlBase
 }
 
 printAllPost();
