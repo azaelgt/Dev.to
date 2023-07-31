@@ -5,8 +5,7 @@ function redirectToIndexWithQuery() {
 }
 
 // Agrega un evento 'click' al enlace con la imagen
-// const logoLink = document.querySelector("#logoLink");
-// logoLink.addEventListener("click", redirectToIndexWithQuery);
+
 
 import {getJson} from "./api.js";
 
@@ -81,5 +80,7 @@ const printPost = async () => {
 
   };
   printPost();
-
+  
+  const logoLink = document.querySelector("#logoLink");
+  logoLink.addEventListener("click", redirectToIndexWithQuery);
 
