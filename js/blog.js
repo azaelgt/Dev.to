@@ -1,6 +1,18 @@
 // vamos a crear los elementos dinamicos del html del post con datos del json
 import {getJson} from "./api.js";
+import {getPostById} from "./api.js";
 
+const urlParams = new URLSearchParams(window.location.search);
+const postId = urlParams.get('postId');
+console.log('id desde params', postId);
+
+const getPostData = async() => {
+  let postData = await getPostById(postId);
+  console.log(postData);
+  let card = createPostCard(postData);
+
+}
+getPostData();
 // const getJson = async() => {
 //   const response = await fetch("https://devtoequipo3-default-rtdb.firebaseio.com/POST/.json");
 //   const data = await response.json();
@@ -24,7 +36,7 @@ import {getJson} from "./api.js";
 //3. Empecemos con una prueba, no incluiremos el dom, sera hardkodeado
 //4. Hacer apendizaciones
 const createPostCard = (postObject) => {
-  let {author, comentsData, createdDate, image, tags, title, key} = postObject;
+  let {author, comentsData, createdDate, image, tags, title} = postObject;
   let allTags = []
   for(let i=0; i<tags.length; i++) {
     allTags += `${tags[i]} `;
@@ -111,7 +123,7 @@ const printPost = async () => {
     console.log('key', key);
     console.log(post[key]);
     
-    let card = createPostCard(post[key]);
+    // let card = createPostCard(post[key]);
     console.log('card',card);
     cardWrapper.append(card);
   })

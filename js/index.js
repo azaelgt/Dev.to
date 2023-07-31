@@ -1,17 +1,23 @@
 import {getJson} from "./api.js";
 
-const printFirstTagMiniPost = (postObject, firstTag, secondTag) =>
+const printFirstTagMiniPost = (postObject, firstTag, secondTag, key) =>
 {
   let {title, comments,tags} = postObject;
   for(let i=0; i<tags.length; i++) {
   if (tags[i].includes(firstTag)) {
 
      let tagsContainer = document.getElementById('tags-container');
+
      let tagContainer = document.createElement('a');
      tagContainer.classList.add('list-group-item');
+     tagContainer.addEventListener('click', () => {
+      console.log('key desde el listener',key);
+      window.open(`../Dev.to/blog.html?postId=${key}`, '_blank');
+      })
 
      let titleContainer = document.createElement('div');
      titleContainer.innerText = title;
+     
 
      let commentContainer = document.createElement('div');
      commentContainer.innerText = comments + ' comments';
@@ -23,9 +29,14 @@ const printFirstTagMiniPost = (postObject, firstTag, secondTag) =>
   if (tags[i].includes(secondTag)) {
 
         let tagsContainer = document.getElementById('second-tags-container');
+        
         let tagContainer = document.createElement('a');
         tagContainer.classList.add('list-group-item');
-   
+        tagContainer.addEventListener('click', () => {
+          console.log('key desde el listener',key);
+          window.open(`../Dev.to/blog.html?postId=${key}`, '_blank');
+          })
+          
         let titleContainer = document.createElement('div');
         titleContainer.innerText = title;
    
@@ -52,7 +63,7 @@ const printPost = async () => {
         console.log('key', key);
         console.log('post',post[key]);
 
-        let card = printFirstTagMiniPost(post[key], '#css', '#devops'); //el post[key] es el argumento q queremos iterar
+        let card = printFirstTagMiniPost(post[key], '#css', '#devops', key); //el post[key] es el argumento q queremos iterar
         console.log('card',card);
         cardWrapper.append(card);
     })      
@@ -60,3 +71,5 @@ const printPost = async () => {
 
   };
   printPost();
+
+
