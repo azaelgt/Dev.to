@@ -79,11 +79,11 @@
             </a>
            
 
-              <button class="btn button__primary--purple d-none d-sm-none d-md-block" onclick="redirectToCreatePost()">
+              <button class="btn button__primary--purple d-none d-sm-none d-md-block" onclick="window.open('./login.html')">
                 Log in
               </button>
 
-              <button type="button" class="btn btn-outline-primary ">
+              <button type="button" class="btn btn-outline-primary" onclick="window.open('./login.html')">
                 Create Account
               </button>
             
@@ -159,10 +159,10 @@
 
             <div class="logininfo">
             <p class="m-1">Email</p>
-            <input type="text">
+            <input type="text" id="email">
 
             <p class="m-1">Password</p>
-            <input type="text" class="password">
+            <input type="text" class="password" id="password">
              
             <div>
               
