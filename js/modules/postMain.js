@@ -9,6 +9,7 @@ const createFirstPostCard = (postObject) => {
 
     let firstCardPost = document.createElement("div");
     firstCardPost.classList.add("card", "mb-3");
+    firstCardPost.setAttribute("id","postContainer");
 
     let topText = document.createElement("h5");
     topText.classList.add("fw-ligth", "topmenu__texts--hover", "p-2", "rounded");
@@ -132,6 +133,8 @@ const createSecondaryPosts = (postObject) =>{
 
     let firstCardPost = document.createElement("div");
     firstCardPost.classList.add("card", "mb-3");
+    firstCardPost.setAttribute("id","postContainer");
+
 
     let cardBodyPost = document.createElement("div");
     cardBodyPost.classList.add("card-body");
@@ -240,34 +243,162 @@ const createSecondaryPosts = (postObject) =>{
     return firstCardPost;
 }
 
-const printAllPost = async() => {
-    let posts = await getPosts();
 
-    let postsWrapper = document.getElementById("posts-wrapper");
-    let keys = Object.keys(posts);
-
-    keys.forEach((key, index) => {
-
-        if (index == 0 ){
-            let postCard = createFirstPostCard(posts[key]);
-            postsWrapper.append(postCard);
-        }
-        else {
-            let postCard = createSecondaryPosts(posts[key]);
-            postsWrapper.append(postCard);
-
-        }
-
-    })
-
-}
 
 const imageAuthorAleatory = () => {
     urlBase = "https://xsgames.co/randomusers/avatar.php?g=male";
     return urlBase
 }
 
-printAllPost();
+const convertirFecha = (cadenaFecha)  => {
+    const [dia, mes, anioHora] = cadenaFecha.split(" - ");
+    const [anio, hora] = anioHora.split(" ");
+    const [horaStr, minStr, segStr] = hora.split(":");
+    
+    const fecha = new Date(anio, mes - 1, dia, horaStr, minStr, segStr);
+    return fecha;
+  }
+
+  const removeElementsById = (idElement) => {
+    let elements = document.querySelectorAll('#posts-wrapper div[id="' + idElement + '"]');
+    elements.forEach(function(element) {
+        element.remove();
+    });
+}
+
+const topFilter = async() =>{
+    let posts = await getPosts();
+    removeElementsById("postContainer");
+
+    let relevantId = document.getElementById("relevantBtn");
+    relevantId.classList.add("fw-light")
+    let latestId = document.getElementById("latestBtn");
+    latestId.classList.add("fw-light")
+    let topId = document.getElementById("topBtn");
+    topId.classList.remove("fw-light")
+    
+
+    let postsWrapper = document.getElementById("posts-wrapper");
+    let keys = Object.keys(posts);
+
+    keys.sort((keyA, keyB) => posts[keyB].rating - posts[keyA].rating);
+
+    keys.forEach((key, index) => {
+
+        if (index == 0 ){
+            let postCard = createFirstPostCard(posts[key]);
+            postsWrapper.append(postCard);
+            
+        }
+        else {
+            let postCard = createSecondaryPosts(posts[key]);
+            postsWrapper.append(postCard);
+
+        }
+    })
+}
+
+  
+const latestFilter = async() => {
+    let posts = await getPosts();
+    removeElementsById("postContainer");
+
+    let relevantId = document.getElementById("relevantBtn");
+    relevantId.classList.add("fw-light")
+    let latestId = document.getElementById("latestBtn");
+    latestId.classList.remove("fw-light")
+    let topId = document.getElementById("topBtn");
+    topId.classList.add("fw-light")
+  
+    let postsWrapper = document.getElementById("posts-wrapper");
+    let keys = Object.keys(posts);
+  
+    keys.sort((keyA, keyB) => {
+      const fechaA = convertirFecha(posts[keyA].createdDate);
+      const fechaB = convertirFecha(posts[keyB].createdDate);
+      return fechaB - fechaA;
+    });
+
+    keys.forEach((key, index) => {
+
+        if (index == 0 ){
+            let postCard = createFirstPostCard(posts[key]);
+            postsWrapper.append(postCard);
+            
+        }
+        else {
+            let postCard = createSecondaryPosts(posts[key]);
+            postsWrapper.append(postCard);
+
+        }
+    })
+  }
+
+
+const relevantFilter = async() => {
+    let posts = await getPosts();
+    removeElementsById("postContainer");
+
+    let relevantId = document.getElementById("relevantBtn");
+    relevantId.classList.remove("fw-light")
+    let latestId = document.getElementById("latestBtn");
+    latestId.classList.add("fw-light")
+    let topId = document.getElementById("topBtn");
+    topId.classList.add("fw-light")
+ 
+  
+    let postsWrapper = document.getElementById("posts-wrapper");
+    let keys = Object.keys(posts);
+    let keysRelevant = [];
+
+
+    keys.forEach((key) => {
+
+        if (posts[key].rating > 0.5 ){
+            keysRelevant.push(key)
+
+        }
+        else{
+
+        }
+    })
+
+    keysRelevant.forEach((key, index) => {
+
+        if (index == 0 ){
+            let postCard = createFirstPostCard(posts[key]);
+            postsWrapper.append(postCard);
+            
+        }
+        else {
+            let postCard = createSecondaryPosts(posts[key]);
+            postsWrapper.append(postCard);
+
+        }
+    })
+
+}
+
+relevantFilter();
+
+
+document.getElementById("relevantBtn").addEventListener("click", relevantFilter);
+document.getElementById("latestBtn").addEventListener("click", latestFilter);
+document.getElementById("topBtn").addEventListener("click", topFilter);
+
+
+
+//topFilter();
+
+//latestFilter();
+
+
+
+/* tagContainer.addEventListener('click', () => {
+      console.log('key desde el listener',key);
+      window.open(`../Dev.to/blog.html?postId=${key}`, '_blank');
+      }) */
+
 
 
 
