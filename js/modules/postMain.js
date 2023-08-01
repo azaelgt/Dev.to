@@ -5,7 +5,7 @@ const getPosts = async () => {
   let data = await response.json();
   return data;
 };
-const createFirstPostCard = (postObject) => {
+const createFirstPostCard = (postObject, key) => {
   let {
     author,
     comentsData,
@@ -16,6 +16,7 @@ const createFirstPostCard = (postObject) => {
     relevant,
     tags,
     title,
+    
   } = postObject;
   let { Tag1, Tag2, Tag3 } = tags;
 
@@ -66,7 +67,8 @@ const createFirstPostCard = (postObject) => {
 
   let titlePostText = document.createElement("a");
   titlePostText.classList.add("text-decoration-none", "link__text");
-  titlePostText.setAttribute("href", "./blog.html");
+  titlePostText.setAttribute("href", `./blog.html?postId=${key}`);
+
   titlePostText.innerText = title;
 
   let tagsText1 = document.createElement("span");
@@ -151,7 +153,7 @@ const createFirstPostCard = (postObject) => {
   return firstCardPost;
 };
 
-const createSecondaryPosts = (postObject) => {
+const createSecondaryPosts = (postObject, key) => {
   let {
     author,
     comentsData,
@@ -164,7 +166,6 @@ const createSecondaryPosts = (postObject) => {
     title,
   } = postObject;
   let { Tag1, Tag2, Tag3 } = tags;
-
   let firstCardPost = document.createElement("div");
   firstCardPost.classList.add("card", "mb-3");
   firstCardPost.setAttribute("id", "postContainer");
@@ -201,7 +202,7 @@ const createSecondaryPosts = (postObject) => {
 
   let titlePostText = document.createElement("a");
   titlePostText.classList.add("text-decoration-none", "link__text");
-  titlePostText.setAttribute("href", "./blog.html");
+  titlePostText.setAttribute("href", `./blog.html?postId=${key}`);
   titlePostText.innerText = title;
 
   let tagsText1 = document.createElement("span");
@@ -391,10 +392,10 @@ const relevantFilter = async () => {
 
   keysRelevant.forEach((key, index) => {
     if (index == 0) {
-      let postCard = createFirstPostCard(posts[key]);
+      let postCard = createFirstPostCard(posts[key], key);
       postsWrapper.append(postCard);
     } else {
-      let postCard = createSecondaryPosts(posts[key]);
+      let postCard = createSecondaryPosts(posts[key], key);
       postsWrapper.append(postCard);
     }
   });
