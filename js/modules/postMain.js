@@ -5,12 +5,43 @@ const getPosts = async () => {
   let data = await response.json();
   return data;
 };
-const createFirstPostCard = (postObject, key) => {
+ const createDateForDataBase =   (date) => {
+    if (!(date instanceof Date)) {
+        return 'Invalid date';
+      }
+    
+      const currentDate = new Date();
+      const differenceMs = currentDate - date;
+      const pastDays = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+    
+      const nameMonth = date.toLocaleDateString('default', { month: 'short' });
+    
+      let dateOut = `${nameMonth} ${date.getDate()}`;
+    
+      if (pastDays > 0) {
+        dateOut += `(${pastDays} days ago)`;
+        return dateOut;
+      } else {
+        dateOut += "(today)";
+        return dateOut;
+      }
+
+  }
+
+  const convertirFecha = (cadenaFecha) => {
+    const [dia, mes, anioHora] = cadenaFecha.split(" - ");
+    const [anio, hora] = anioHora.split(" ");
+    const [horaStr, minStr, segStr] = hora.split(":");
+  
+    const fecha = new Date(anio, mes - 1, dia, horaStr, minStr, segStr);
+    return fecha;
+  };
+const createFirstPostCard =  (postObject, key) => {
   let {
     author,
     comentsData,
     comments,
-    createDate,
+    createdDate,
     image,
     rating,
     relevant,
@@ -93,8 +124,10 @@ const createFirstPostCard = (postObject, key) => {
   autorNameText.classList.add("m-0");
   autorNameText.innerText = author;
 
+
   let dateText = document.createElement("span");
-  dateText.innerText = createDate;
+  dateText.innerText = createDateForDataBase(convertirFecha(createdDate));
+
 
   let heartEmoji = document.createElement("p");
   heartEmoji.innerText = "❤️";
@@ -158,7 +191,7 @@ const createSecondaryPosts = (postObject, key) => {
     author,
     comentsData,
     comments,
-    createDate,
+    createdDate,
     image,
     rating,
     relevant,
@@ -228,7 +261,7 @@ const createSecondaryPosts = (postObject, key) => {
   autorNameText.innerText = author;
 
   let dateText = document.createElement("span");
-  dateText.innerText = createDate;
+  dateText.innerText = createDateForDataBase(convertirFecha(createdDate));
 
   let heartEmoji = document.createElement("p");
   heartEmoji.innerText = "❤️";
@@ -292,14 +325,6 @@ const imageAuthorAleatory = () => {
   return urlBase;
 };
 
-const convertirFecha = (cadenaFecha) => {
-  const [dia, mes, anioHora] = cadenaFecha.split(" - ");
-  const [anio, hora] = anioHora.split(" ");
-  const [horaStr, minStr, segStr] = hora.split(":");
-
-  const fecha = new Date(anio, mes - 1, dia, horaStr, minStr, segStr);
-  return fecha;
-};
 
 const removeElementsById = (idElement) => {
   let elements = document.querySelectorAll(
